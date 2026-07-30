@@ -1,0 +1,22 @@
+RVA-Trading-Redesign
+│
+├── index.html
+├── products.html
+├── services.html
+├── brands.html
+├── about.html
+├── branches.html
+├── careers.html
+├── contact.html
+│
+├── css
+│   └── style.css
+│
+├── js
+│   └── script.js
+│
+└── images
+    ├── logo
+    ├── products
+    ├── brands
+    └── banners
