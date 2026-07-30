@@ -739,79 +739,230 @@
   </section>
 
   <!-- PRODUCTS -->
-  <section id="products">
+  <!-- PRODUCTS -->
+<section id="products">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="section-title">
-        <small>Products</small>
-        <h2>Featured Products</h2>
-        <p>
-          Browse selected RVA Corporation product categories.
-        </p>
+    <div class="section-title">
+      <small>RVA CORPORATION</small>
+      <h2>Product Catalog</h2>
+      <p>
+        Browse our printing, imaging, ink and toner solutions.
+      </p>
+    </div>
+
+    <!-- PRODUCT SEARCH -->
+    <div class="catalog-search">
+      <input
+        type="search"
+        id="catalogSearch"
+        placeholder="🔎 Search products..."
+        onkeyup="filterCatalog()"
+      >
+    </div>
+
+    <!-- PRODUCT FILTERS -->
+    <div class="product-filters">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">
+        All
+      </button>
+
+      <button class="filter-btn" onclick="filterCategory('ink', this)">
+        Ink
+      </button>
+
+      <button class="filter-btn" onclick="filterCategory('toner', this)">
+        Toner
+      </button>
+
+      <button class="filter-btn" onclick="filterCategory('laserjet', this)">
+        LaserJet
+      </button>
+
+      <button class="filter-btn" onclick="filterCategory('printer', this)">
+        Printers
+      </button>
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+    <div class="products" id="catalogGrid">
+
+
+      <!-- INKS -->
+      <div
+        class="product-card catalog-product"
+        data-category="ink"
+        data-name="inks ink cartridges"
+      >
+
+        <div class="product-image">
+          <img src="Inks.jpeg" alt="RVA Corporation Ink Products">
+        </div>
+
+        <div class="product-info">
+
+          <small>INK SUPPLIES</small>
+
+          <h3>Inks</h3>
+
+          <p>
+            Ink products and supplies for compatible
+            printing systems.
+          </p>
+
+          <button
+            class="details-btn"
+            onclick="openProduct(
+              'Inks',
+              'INK SUPPLIES',
+              'Ink products and supplies for compatible printing systems.',
+              'Inks.jpeg'
+            )"
+          >
+            View Details
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="products" id="productGrid">
 
-        <div class="product-card" data-name="inks ink cartridges">
-          <div class="product-image">
-            <img src="Inks.jpeg" alt="Ink Products">
-          </div>
+      <!-- LASER TONER -->
+      <div
+        class="product-card catalog-product"
+        data-category="toner"
+        data-name="laser toner"
+      >
 
-          <div class="product-info">
-            <small>INK SUPPLIES</small>
-            <h3>Inks</h3>
-            <p>
-              Printing ink supplies for compatible printing systems.
-            </p>
-            <a href="#contact" class="product-link">
-              Inquire About Product →
-            </a>
-          </div>
+        <div class="product-image">
+          <img src="Laser Toner.jpeg" alt="RVA Corporation Laser Toner">
         </div>
 
+        <div class="product-info">
 
-        <div class="product-card" data-name="laser toner toner">
-          <div class="product-image">
-            <img src="Laser Toner.jpeg" alt="Laser Toner">
-          </div>
+          <small>TONER</small>
 
-          <div class="product-info">
-            <small>TONER</small>
-            <h3>Laser Toner</h3>
-            <p>
-              Laser toner solutions for office and business printing.
-            </p>
-            <a href="#contact" class="product-link">
-              Inquire About Product →
-            </a>
-          </div>
-        </div>
+          <h3>Laser Toner</h3>
 
+          <p>
+            Laser toner solutions for office and business
+            printing requirements.
+          </p>
 
-        <div class="product-card" data-name="laserjet toner printer">
-          <div class="product-image">
-            <img src="Laserjet Toner.jpeg" alt="LaserJet Toner">
-          </div>
+          <button
+            class="details-btn"
+            onclick="openProduct(
+              'Laser Toner',
+              'TONER',
+              'Laser toner solutions for office and business printing requirements.',
+              'Laser Toner.jpeg'
+            )"
+          >
+            View Details
+          </button>
 
-          <div class="product-info">
-            <small>LASERJET</small>
-            <h3>LaserJet Toner</h3>
-            <p>
-              Toner supplies for LaserJet printing requirements.
-            </p>
-            <a href="#contact" class="product-link">
-              Inquire About Product →
-            </a>
-          </div>
         </div>
 
       </div>
+
+
+      <!-- LASERJET TONER -->
+      <div
+        class="product-card catalog-product"
+        data-category="laserjet toner"
+        data-name="laserjet toner"
+      >
+
+        <div class="product-image">
+          <img src="Laserjet Toner.jpeg" alt="RVA Corporation LaserJet Toner">
+        </div>
+
+        <div class="product-info">
+
+          <small>LASERJET</small>
+
+          <h3>LaserJet Toner</h3>
+
+          <p>
+            Toner supplies for LaserJet printing
+            requirements.
+          </p>
+
+          <button
+            class="details-btn"
+            onclick="openProduct(
+              'LaserJet Toner',
+              'LASERJET',
+              'Toner supplies for LaserJet printing requirements.',
+              'Laserjet Toner.jpeg'
+            )"
+          >
+            View Details
+          </button>
+
+        </div>
+
+      </div>
+
 
     </div>
 
-  </section>
+    <p
+      id="noProducts"
+      style="
+        display:none;
+        text-align:center;
+        margin-top:30px;
+        color:#667085;
+      "
+    >
+      No products found.
+    </p>
 
+  </div>
+
+</section>
+
+
+<!-- PRODUCT DETAILS POPUP -->
+<div class="product-modal" id="productModal">
+
+  <div class="modal-content">
+
+    <button
+      class="modal-close"
+      onclick="closeProduct()"
+    >
+      ×
+    </button>
+
+    <div class="modal-image">
+      <img id="modalImage" src="" alt="">
+    </div>
+
+    <div class="modal-info">
+
+      <small id="modalCategory"></small>
+
+      <h2 id="modalTitle"></h2>
+
+      <p id="modalDescription"></p>
+
+      <a
+        href="#contact"
+        class="modal-inquiry"
+        onclick="closeProduct()"
+      >
+        Product Inquiry →
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
   <!-- BRANDS -->
   <section id="brands">
 
